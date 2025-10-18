@@ -1,60 +1,55 @@
 <x-app-layout>
-    <div class="container mx-auto px-4 py-8">
-        <!-- Page Heading -->
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-2xl font-bold text-gray-800">✏️ Update Category</h2>
+    <div class="max-w-4xl mx-auto px-6 py-10">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 flex items-center gap-2">Update Category</h2>
             <a href="{{ route('category.index') }}"
-                class="px-4 py-2 bg-gray-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-gray-700 transition">
+               class="px-5 py-2 bg-gray-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-gray-700 focus:ring-2 focus:ring-gray-300 transition">
                 ← Back to Categories
             </a>
         </div>
 
-        <!-- Form Container -->
-        <div class="bg-white shadow-lg rounded-lg p-6 max-w-2xl mx-auto">
-            <form action="{{ route('category.update', $category) }}" method="post" enctype="multipart/form-data">
-
+        <div class="bg-white shadow-xl rounded-2xl p-8 border border-gray-200 max-w-2xl mx-auto">
+            <form action="{{ route('category.update', $category) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method("put")
-                <!-- Name Field -->
-                <div class="mb-4">
-                    <label for="title" class="block text-sm font-medium text-gray-700">Name:</label>
-                    <input type="text" id="title" name="category_name" value="{{ $category->category_name }}"
-                            class="mt-1 p-3 w-full border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200"
-                            placeholder="Enter title">
-                    @error("category_name")
-                        <div class="error">{{ $message }}</div>
+                @method('PUT')
+
+                <div class="mb-6">
+                    <label for="title" class="block text-sm font-semibold text-gray-700 mb-2">Category Name</label>
+                    <input type="text" id="title" name="category_name"
+                           value="{{ $category->category_name }}"
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300 focus:border-blue-400 placeholder-gray-400"
+                           placeholder="Enter category name">
+                    @error('category_name')
+                        <p class="text-red-600 text-sm mt-2 font-medium">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <!-- Description Field -->
-                <div class="mb-4">
-                    <label for="description" class="block text-sm font-medium text-gray-700">Description:</label>
+                <div class="mb-6">
+                    <label for="description" class="block text-sm font-semibold text-gray-700 mb-2">Description</label>
                     <textarea id="description" name="description" rows="4"
-                                class="mt-1 p-3 w-full border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200"
-                                placeholder="Enter description">{{ $category->description }}</textarea>
-                    @error("description")
-                        <div class="error">{{ $message }}</div>
+                              class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300 focus:border-blue-400 placeholder-gray-400"
+                              placeholder="Enter category description">{{ $category->description }}</textarea>
+                    @error('description')
+                        <p class="text-red-600 text-sm mt-2 font-medium">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <!-- Category Status Selection -->
-                <div class="mb-4">
-                    <label for="status" class="block text-sm font-medium text-gray-700">Status:</label>
+                <div class="mb-6">
+                    <label for="status" class="block text-sm font-semibold text-gray-700 mb-2">Status</label>
                     <select id="status" name="status"
-                        class="mt-1 p-2 w-full border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-300">
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300 focus:border-blue-400">
+                        <option value="active" {{ $category->status === 'active' ? 'selected' : '' }}>Active</option>
+                        <option value="inactive" {{ $category->status === 'inactive' ? 'selected' : '' }}>Inactive</option>
                     </select>
-                    @error("status")
-                        <div class="error">{{ $message }}</div>
+                    @error('status')
+                        <p class="text-red-600 text-sm mt-2 font-medium">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <!-- Submit Button -->
-                <div class="mt-6">
+                <div class="mt-8">
                     <button type="submit"
-                            class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-green-700 transition">
-                        ✅ Update Blog
+                            class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-green-700 focus:ring-2 focus:ring-green-300 transition">
+                        ✅ Update Category
                     </button>
                 </div>
             </form>

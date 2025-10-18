@@ -5,8 +5,8 @@
 
             @if(Auth::user()->role === 'admin')
                 <a href="{{ route('category.create') }}"
-                   class="inline-block px-5 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 transition">
-                    ➕  Create New Category
+                   class="inline-block px-5 py-2 bg-gray-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-white hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 transition">
+                    + New Category
                 </a>
             @endif
         </div>

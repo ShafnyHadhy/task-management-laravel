@@ -16,9 +16,10 @@
 
                 <div class="mb-6">
                     <label for="task_name" class="block text-sm font-semibold text-gray-700 mb-1">Task Name:</label>
-                    <input disabled type="text" id="task_name" name="task_name" value="{{ $task->task_name }}"
-                        class="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-700 shadow-sm cursor-not-allowed focus:ring focus:ring-blue-200"
-                        placeholder="Enter task name">
+                    <input type="text" id="task_name" name="task_name" value="{{ $task->task_name }}"
+                        class="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-700 shadow-sm focus:ring focus:ring-blue-200"
+                        placeholder="Enter task name"
+                        @if(Auth::user()->role !== 'admin') readonly class="bg-gray-100 cursor-not-allowed" @endif>
                     @error('task_name')
                         <p class="text-red-600 text-sm font-semibold mt-1">{{ $message }}</p>
                     @enderror
@@ -26,9 +27,10 @@
 
                 <div class="mb-6">
                     <label for="description" class="block text-sm font-semibold text-gray-700 mb-1">Description:</label>
-                    <textarea disabled id="description" name="description" rows="4"
-                        class="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-700 shadow-sm cursor-not-allowed focus:ring focus:ring-blue-200"
-                        placeholder="Enter description">{{ $task->description }}</textarea>
+                    <textarea readonly id="description" name="description" rows="4"
+                        class="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-700 shadow-sm focus:ring focus:ring-blue-200"
+                        placeholder="Enter description"
+                        @if(Auth::user()->role !== 'admin') readonly class="bg-gray-100 cursor-not-allowed" @endif>{{ $task->description }}</textarea>
                     @error('description')
                         <p class="text-red-600 text-sm font-semibold mt-1">{{ $message }}</p>
                     @enderror
@@ -106,7 +108,7 @@
 
                 <div class="mt-8">
                     <button type="submit"
-                        class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-green-700 focus:ring-2 focus:ring-green-400 transition">
+                        class="w-full bg-gray-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-gray-800 focus:ring-2 focus:ring-green-400 transition">
                         ✅ Update Task
                     </button>
                 </div>

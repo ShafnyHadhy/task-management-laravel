@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.success-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 20px; /* Slightly below the top */
+    left: 50%;
+    transform: translateX(-50%) translateY(-150%);
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: all 0.5s ease;
+    width: auto;
+    max-width: 400px;
+}
+
+/* Show animation */
+.success-message.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+

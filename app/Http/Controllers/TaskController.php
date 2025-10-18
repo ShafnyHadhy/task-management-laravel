@@ -93,16 +93,28 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-         $data = $request->validate([
+        if (Auth::user()->role === 'admin') {
 
-            "status" => "required|string",
+            $data = $request->validate([
+                "task_name"   => "required|string",
+                "description" => "required|string",
+                "category_id" => "required|string",
+                "deadline"    => "required|date",
+                "status"      => "required|string",
+                "user_id"     => "required|string",
+            ]);
+        } else {
 
-        ]);
+            $data = $request->validate([
+                "status" => "required|string",
+            ]);
+        }
 
         $task->update($data);
 
-       return to_route("task.index", $task)->with("success", "Task updated successfully!");
+        return to_route("task.index")->with("success", "Task updated successfully!");
     }
+
 
     /**
      * Remove the specified resource from storage.

@@ -48,7 +48,7 @@
 
                 <div class="mt-8">
                     <button type="submit"
-                            class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-green-700 focus:ring-2 focus:ring-green-300 transition">
+                            class="w-full bg-gray-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-gray-800 focus:ring-2 focus:ring-green-300 transition">
                         ✅ Update Category
                     </button>
                 </div>

@@ -29,11 +29,22 @@
 
             <!-- Page Content -->
             <main>
-                @session("success")
-                    <div class="success-message">{{ session("success") }}</div>
-                @endsession
+                @if (session('success'))
+                    <div id="successToast" class="success-message">{{ session('success') }}</div>
+                @endif
                 {{ $slot }}
             </main>
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const toast = document.getElementById('successToast');
+                if (toast) {
+                    toast.classList.add('show');
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                    }, 3000); // Hide after 3s
+                }
+            });
+        </script>
     </body>
 </html>

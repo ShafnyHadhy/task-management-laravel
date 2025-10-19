@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-6xl mx-auto px-6 py-8">
         <div class="flex justify-between items-center mb-6">
-            <h2 class="text-3xl font-bold text-gray-800">Categories</h2>
+            <h2 class="text-3xl font-bold text-white">Categories</h2>
 
             @if(Auth::user()->role === 'admin')
                 <a href="{{ route('category.create') }}"

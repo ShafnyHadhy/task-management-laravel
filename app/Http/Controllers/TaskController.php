@@ -21,7 +21,7 @@ class TaskController extends Controller
         {
             $tasks = Task::with(['user', 'category'])
                     ->latest()
-                    ->paginate(10);
+                    ->paginate(6);
         }
         else
         {
@@ -30,10 +30,6 @@ class TaskController extends Controller
                      ->latest()
                      ->paginate(10);
         }
-
-        // $tasks = Task::where("user_id", request()->user()->id)
-        // ->orderBy("id", "DESC")
-        // ->paginate(10);
 
         return view('task.index', ["tasks" => $tasks]);
     }

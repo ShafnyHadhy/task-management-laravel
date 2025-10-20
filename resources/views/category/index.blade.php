@@ -44,12 +44,12 @@
 
                                 <td class="px-5 py-3 flex justify-center space-x-2">
                                     <a href="{{ route('category.show', $category) }}"
-                                       class="px-3 py-2 bg-blue-100 text-white text-xs font-semibold rounded-md hover:bg-blue-500 focus:ring focus:ring-blue-200 transition">
+                                       class="px-3 py-2 bg-blue-300 text-white text-xs font-semibold rounded-md hover:bg-blue-500 focus:ring focus:ring-blue-200 transition">
                                         👁
                                     </a>
 
                                     <a href="{{ route('category.edit', $category) }}"
-                                       class="px-3 py-2 bg-green-100 text-white text-xs font-semibold rounded-md hover:bg-green-500 focus:ring focus:ring-yellow-200 transition">
+                                       class="px-3 py-2 bg-green-300 text-white text-xs font-semibold rounded-md hover:bg-green-500 focus:ring focus:ring-yellow-200 transition">
                                         ✏️
                                     </a>
 
@@ -57,7 +57,7 @@
                                         @csrf
                                         @method("delete")
                                         <button onclick="return confirm('Are you sure you want to delete this category?')"
-                                                class="px-3 py-2 bg-red-100 text-white text-xs font-semibold rounded-md hover:bg-red-500 focus:ring focus:ring-red-200 transition">
+                                                class="px-3 py-2 bg-red-300 text-white text-xs font-semibold rounded-md hover:bg-red-500 focus:ring focus:ring-red-200 transition">
                                             🗑
                                         </button>
                                     </form>

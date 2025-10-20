@@ -49,7 +49,7 @@ class HomeController extends Controller
 
         $toComplete = Task::where('user_id', $user->id)
                             ->whereIn('status', ['pending', 'in-progress'])
-                            ->latest()
+                            ->orderBy('deadline', 'asc')
                             ->take(5)
                             ->get()
                             ->map(function ($task) {

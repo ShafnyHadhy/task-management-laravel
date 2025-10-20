@@ -38,7 +38,7 @@
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-gray-800 p-6 rounded-lg mt-6 border">
-                <span class="font-bold text-lg mb-6 block text-white">{{ __("Tasks to Complete") }}</span>
+                <span class="font-bold text-lg mb-6 block text-white">{{ __("Upcoming Deadlines") }}</span>
 
                 @forelse ($toComplete as $task)
                     <div class="flex flex-col mt-4 p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition max-w-5xl mx-auto">

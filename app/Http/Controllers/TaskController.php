@@ -13,26 +13,32 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
 
-        if($user->role === 'admin')
-        {
-            $tasks = Task::with(['user', 'category'])
-                    ->latest()
-                    ->paginate(6);
-        }
-        else
-        {
-            $tasks = Task::with(['category'])
-                     ->where('user_id', $user->id)
-                     ->latest()
-                     ->paginate(10);
+        if ($user->role === 'admin') {
+            $query = Task::with(['user', 'category']);
+        } else {
+            $query = Task::with('category')->where('user_id', $user->id);
         }
 
-        return view('task.index', ["tasks" => $tasks]);
+        if ($request->filled('search')) {
+            $query->where(function ($q) use ($request) {
+                $q->where('task_name', 'like', '%' . $request->search . '%')
+                ->orWhere('description', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        $tasks = $query->latest()->paginate(8);
+
+        return view('task.index', ['tasks' => $tasks, 'search' => $request->search, 'status' => $request->status, ]);
     }
+
 
     /**
      * Show the form for creating a new resource.

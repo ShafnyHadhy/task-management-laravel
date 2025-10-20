@@ -9,7 +9,7 @@
         </div>
 
         <div class="bg-white shadow-xl rounded-2xl p-8 border border-gray-200">
-            <!-- Two-column grid layout -->
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="mb-6">
                     <h3 class="text-lg font-semibold text-gray-700 mb-1">Task Name:</h3>

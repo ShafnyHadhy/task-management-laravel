@@ -5,15 +5,15 @@
             <h2 class="text-3xl font-bold text-white flex items-center gap-2">Tasks</h2>
             @if(Auth::user()->role === 'admin')
                 <a href="{{ route('task.create') }}"
-                   class="px-5 py-2 bg-gray-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-white hover:text-gray-800 focus:ring-2 focus:ring-gray-800 transition">
+                   class="px-5 py-2 bg-gray-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-gray-700 focus:ring-2 focus:ring-gray-800 transition">
                     + New Task
                 </a>
             @endif
         </div>
 
-        <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200">
+        <div class="bg-white/95 shadow-xl rounded-lg overflow-hidden border border-gray-200">
             <table class="w-full border-collapse">
-                <thead class="bg-gray-500 text-white uppercase text-sm font-semibold tracking-wide">
+                <thead class="bg-gray-700 text-white uppercase text-sm font-semibold tracking-wide">
                     <tr>
                         <th class="px-5 py-3 text-left">Task & Description</th>
                         {{-- <th class="px-5 py-3 text-left">Description</th> --}}
@@ -30,7 +30,7 @@
 
                 <tbody class="divide-y divide-gray-200 text-gray-800">
                     @forelse ($tasks as $task)
-                        <tr class="hover:bg-gray-50 transition">
+                        <tr class="hover:bg-white transition">
                             <td class="px-5 py-3">
                                 <div class="font-semibold text-gray-900">{{ $task->task_name }}</div>
                                 <div class="text-gray-700 text-sm">{{ Str::limit($task->description, 50) }}</div>

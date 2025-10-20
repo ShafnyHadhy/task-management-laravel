@@ -5,15 +5,15 @@
 
             @if(Auth::user()->role === 'admin')
                 <a href="{{ route('category.create') }}"
-                   class="inline-block px-5 py-2 bg-gray-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-white hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 transition">
+                   class="inline-block px-5 py-2 bg-gray-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-800 transition">
                     + New Category
                 </a>
             @endif
         </div>
 
-        <div class="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200">
+        <div class="bg-white/95 shadow-lg rounded-lg overflow-hidden border border-gray-200">
             <table class="w-full text-sm text-left text-gray-700">
-                <thead class="bg-gray-500 text-white uppercase tracking-wider">
+                <thead class="bg-gray-700 text-white uppercase tracking-wider">
                     <tr>
                         <th class="px-5 py-3">No</th>
                         <th class="px-5 py-3">Category Name</th>
@@ -28,7 +28,7 @@
 
                 <tbody class="divide-y divide-gray-200">
                     @forelse ($categories as $category)
-                        <tr class="hover:bg-gray-50 transition duration-200">
+                        <tr class="hover:bg-white transition duration-200">
                             <td class="px-5 py-3">{{ $category->id }}</td>
                             <td class="px-5 py-3 font-semibold text-gray-900">{{ $category->category_name }}</td>
                             <td class="px-5 py-3 text-gray-600">{{ Str::limit($category->description, 50) }}</td>

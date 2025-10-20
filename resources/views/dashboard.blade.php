@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex flex-row justify-between bg-gray-800 py-4 px-6">
+        <div class="flex flex-row justify-between bg-gray-900 py-4 px-6">
             <h4 class="text-white text-lg font-semibold">{{ __("Welcome, " . Auth::user()->name . "! Here's your dashboard.") }}</h4>
             <span class="text-sm text-gray-300">
                 {{ now()->format('d M, Y') }}
@@ -11,37 +11,37 @@
     <div class="pb-12">
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-6xl mx-auto sm:px-6 lg:px-8">
 
-            <div class="bg-red-100 border border-red-200 rounded-xl shadow-lg p-8 flex flex-row items-center justify-center gap-12 hover:shadow-xl transition-shadow duration-300">
-                <x-heroicon-s-arrow-right-circle class="w-14 h-14 text-red-600 mb-4"/>
-                <div class="flex flex-col items-center gap-4">
-                    <span class="text-gray-800 text-lg font-semibold">Pending Tasks</span>
-                    <span class="text-3xl font-bold text-red-500 mt-2">{{ $pending }}</span>
+            <div class="bg-gray-800 border border-red-200 rounded-xl shadow-lg p-8 flex flex-row items-center justify-center gap-10 hover:shadow-xl transition-shadow duration-300">
+                <x-heroicon-s-arrow-right-circle class="w-14 h-14 text-gray-200 mb-4"/>
+                <div class="flex flex-col items-center gap-2">
+                    <span class="text-gray-100 text-2xl font-semibold">Pending Tasks</span>
+                    <span class="text-3xl font-bold text-red-500 mt-2">{{ "0".$pending }}</span>
                 </div>
             </div>
 
-            <div class="bg-blue-100 border border-blue-200 rounded-xl shadow-lg p-8 flex flex-row items-center justify-center gap-12 hover:shadow-xl transition-shadow duration-300">
-                <x-heroicon-s-bolt class="w-14 h-14 text-blue-600 mb-4"/>
-                <div class="flex flex-col items-center gap-4">
-                    <span class="text-gray-800 text-lg font-semibold">Tasks In Progress </span>
-                    <span class="text-3xl font-bold text-blue-500 mt-2">{{ $inProgress }}</span>
+            <div class="bg-gray-800 border border-blue-200 rounded-xl shadow-lg p-8 flex flex-row items-center justify-center gap-5 hover:shadow-xl transition-shadow duration-300">
+                <x-heroicon-s-bolt class="w-14 h-14 text-gray-200 mb-4"/>
+                <div class="flex flex-col items-center gap-2">
+                    <span class="text-gray-100 text-2xl font-semibold">Tasks In Progress </span>
+                    <span class="text-3xl font-bold text-blue-500 mt-2">{{ "0".$inProgress }}</span>
                 </div>
             </div>
 
-            <div class="bg-green-100 border border-green-200 rounded-xl shadow-lg p-8 flex flex-row items-center justify-center gap-12 hover:shadow-xl transition-shadow duration-300">
-                <x-heroicon-s-check-circle class="w-14 h-14 text-green-600 mb-4"/>
-                <div class="flex flex-col items-center gap-4">
-                    <span class="text-gray-800 text-lg font-semibold">Completed Tasks</span>
-                    <span class="text-3xl font-bold text-green-500 mt-2">{{ $completed }}</span>
+            <div class="bg-gray-800 border border-green-200 rounded-xl shadow-lg p-8 flex flex-row items-center justify-center gap-5 hover:shadow-xl transition-shadow duration-300">
+                <x-heroicon-s-check-circle class="w-14 h-14 text-gray-200 mb-4"/>
+                <div class="flex flex-col items-center gap-2">
+                    <span class="text-gray-100 text-2xl font-semibold">Completed Tasks</span>
+                    <span class="text-3xl font-bold text-green-500 mt-2">{{ "0".$completed }}</span>
                 </div>
             </div>
         </div>
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white p-6 rounded-lg mt-6">
-                <span class="font-bold text-lg mb-6 block">{{ __("Tasks to Complete") }}</span>
+            <div class="bg-gray-800 p-6 rounded-lg mt-6 border">
+                <span class="font-bold text-lg mb-6 block text-white">{{ __("Tasks to Complete") }}</span>
 
                 @forelse ($toComplete as $task)
-                    <div class="flex flex-col mt-4 p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition max-w-6xl mx-auto">
+                    <div class="flex flex-col mt-4 p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition max-w-5xl mx-auto">
 
                         <div class="flex justify-between items-center w-full">
                             <div class="font-semibold text-gray-800">

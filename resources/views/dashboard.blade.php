@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="flex justify-between items-center w-full mt-2">
-                            <div class="text-gray-600 text-sm">
+                            <div class="text-gray-800 text-sm">
                                 {{ $task->description }}
                             </div>
 

@@ -12,25 +12,25 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-6xl mx-auto sm:px-6 lg:px-8">
 
             <div class="bg-gray-800 border border-red-200 rounded-xl shadow-lg p-8 flex flex-row items-center justify-center gap-10 hover:shadow-xl transition-shadow duration-300">
-                <x-heroicon-s-arrow-right-circle class="w-14 h-14 text-gray-200 mb-4"/>
+                <x-heroicon-s-arrow-right-circle class="w-14 h-14 text-white mb-4"/>
                 <div class="flex flex-col items-center gap-2">
-                    <span class="text-gray-100 text-2xl font-semibold">Pending Tasks</span>
+                    <span class="text-white text-2xl font-semibold">Pending Tasks</span>
                     <span class="text-3xl font-bold text-red-500 mt-2">{{ "0".$pending }}</span>
                 </div>
             </div>
 
             <div class="bg-gray-800 border border-blue-200 rounded-xl shadow-lg p-8 flex flex-row items-center justify-center gap-5 hover:shadow-xl transition-shadow duration-300">
-                <x-heroicon-s-bolt class="w-14 h-14 text-gray-200 mb-4"/>
+                <x-heroicon-s-bolt class="w-14 h-14 text-white mb-4"/>
                 <div class="flex flex-col items-center gap-2">
-                    <span class="text-gray-100 text-2xl font-semibold">Tasks In Progress </span>
+                    <span class="text-white text-2xl font-semibold">Tasks In Progress </span>
                     <span class="text-3xl font-bold text-blue-500 mt-2">{{ "0".$inProgress }}</span>
                 </div>
             </div>
 
             <div class="bg-gray-800 border border-green-200 rounded-xl shadow-lg p-8 flex flex-row items-center justify-center gap-5 hover:shadow-xl transition-shadow duration-300">
-                <x-heroicon-s-check-circle class="w-14 h-14 text-gray-200 mb-4"/>
+                <x-heroicon-s-check-circle class="w-14 h-14 text-white mb-4"/>
                 <div class="flex flex-col items-center gap-2">
-                    <span class="text-gray-100 text-2xl font-semibold">Completed Tasks</span>
+                    <span class="text-white text-2xl font-semibold">Completed Tasks</span>
                     <span class="text-3xl font-bold text-green-500 mt-2">{{ "0".$completed }}</span>
                 </div>
             </div>
